@@ -32,8 +32,10 @@ public class Main{
     }
 
     public DiscordAPI connectToDiscord(){
-        DiscordAPI api = Javacord.getApi("MjI2OTk5Nzk1NjM2NTAyNTI4.Cr_xig.JoRe-g65JJqSJGxB-6ptn7GgQJI", false);
+        String token = DPSUtils.getToken();
+        DiscordAPI api = Javacord.getApi(token, false);
         api.connectBlocking();
+        DPSUtils.log("Connected to Discord with token: " + token + ".");
         return api;
     }
 
