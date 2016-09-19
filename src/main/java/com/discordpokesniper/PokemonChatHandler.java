@@ -41,7 +41,7 @@ public class PokemonChatHandler implements MessageCreateListener{
         }
 
         //Snipe
-        DSPUtils.log("Sniping " + pokemonName + " @ " + latitude + ", " + longitude + ".");
+        DPSUtils.log("Sniping " + pokemonName + " @ " + latitude + ", " + longitude + ".");
         try{
             final Process process = Runtime.getRuntime().exec("cscript " + Main.getCurrentDirectory().getAbsolutePath() + "\\snipe.vbs");
             Timer timer = new Timer();

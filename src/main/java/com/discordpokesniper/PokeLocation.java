@@ -96,8 +96,8 @@ public class PokeLocation{
 
     @Override
     public int hashCode(){
-        int latitude = (int)(DSPUtils.formatCoords(getLatitude()) * 100000);
-        int longitude = (int)(DSPUtils.formatCoords(getLongitude()) * 100000);
+        int latitude = (int)(DPSUtils.formatCoords(getLatitude()) * 100000);
+        int longitude = (int)(DPSUtils.formatCoords(getLongitude()) * 100000);
         return latitude + longitude;
     }
 }

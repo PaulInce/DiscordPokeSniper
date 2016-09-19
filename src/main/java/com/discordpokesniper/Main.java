@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.net.URISyntaxException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main{
 
@@ -24,7 +22,7 @@ public class Main{
         DiscordAPI discordAPI = main.connectToDiscord();
         main.registerListeners(discordAPI);
         SnipeCache.startCacheProgram();
-        DSPUtils.log("Autosniper Started...");
+        DPSUtils.log("Autosniper Started...");
     }
 
 
@@ -34,10 +32,7 @@ public class Main{
     }
 
     public DiscordAPI connectToDiscord(){
-        //Mine
         DiscordAPI api = Javacord.getApi("MjI2OTk5Nzk1NjM2NTAyNTI4.Cr_xig.JoRe-g65JJqSJGxB-6ptn7GgQJI", false);
-        //Someone elses
-        //DiscordAPI api = Javacord.getApi("MjE0MDk0NzExOTY5ODA4Mzg0.CqdYpg.BxedtirQj2HU5xs3qZ2FiC0jg0k", false);
         api.connectBlocking();
         return api;
     }

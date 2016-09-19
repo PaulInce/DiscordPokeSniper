@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
-public class DSPUtils{
+public class DPSUtils{
 
     public static double formatCoords(double coords){
         DecimalFormat df = new DecimalFormat("000.00000");
