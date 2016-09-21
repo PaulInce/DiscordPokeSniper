@@ -2,6 +2,7 @@ package com.discordpokesniper;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
+import de.btobastian.javacord.Discord;
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.Javacord;
 import org.slf4j.LoggerFactory;

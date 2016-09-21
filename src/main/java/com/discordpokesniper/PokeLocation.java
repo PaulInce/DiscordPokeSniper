@@ -48,7 +48,7 @@ public class PokeLocation{
         if(StringUtils.containsIgnoreCase(notificationString, "DSP")) return null;
 
         //Find Lat/Long from string
-        Pattern pattern = Pattern.compile("(-?(\\d)+(\\.)?(\\d)*)");
+        Pattern pattern = Pattern.compile("(-?\\d+\\.\\d+)");
         Matcher matcher = pattern.matcher(notificationString);
         String[] locations = new String[2];
         int doublesFound = 0;
@@ -60,7 +60,6 @@ public class PokeLocation{
         if(doublesFound < 2) return null;
         double latitude = Double.parseDouble(locations[0]);
         double longitude = Double.parseDouble(locations[1]);
-
         //Check if Lat/Long found is valid
         if(latitude > 90 || latitude < -90 || longitude > 180 || longitude < -180) return null;
         if(latitude % 1 == 0 || longitude % 1 == 0) return null;
@@ -68,7 +67,6 @@ public class PokeLocation{
         //Find if it is 100IV pokemon
         boolean is100IV = StringUtils.containsIgnoreCase(notificationString, "IV: 100") || StringUtils.containsIgnoreCase(notificationString, "iv100") || StringUtils.containsIgnoreCase(notificationString, "100iv") || StringUtils.containsIgnoreCase(notificationString, "100%") || StringUtils.containsIgnoreCase(notificationString, "IV:(100)");
         if(!is100IV) return null;
-
         //Find which pokemon we're talking about
         String pokemonType = null;
         for(String type : DPSUtils.pokemonSniping){
@@ -77,8 +75,6 @@ public class PokeLocation{
                 break;
             }
         }
-
-        //Ensure lat / long is of the same length for easy cache storage
 
         if(pokemonType == null) return null;
         return new PokeLocation(pokemonType, longitude, latitude);
