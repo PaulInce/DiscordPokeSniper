@@ -12,7 +12,7 @@ public class DPSUtils{
 
     public static double formatCoords(double coords){
         DecimalFormat df = new DecimalFormat("000.00000");
-        return Double.parseDouble(df.format(coords));
+        return Double.parseDouble(df.format(coords).replace(',', '.'));
     }
 
     public static void log(String logMessage){

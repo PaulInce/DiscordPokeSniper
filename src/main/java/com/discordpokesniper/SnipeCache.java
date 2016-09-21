@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class SnipeCache{
 
-    private static Map<PokeLocation, Long> sniperCache = new ConcurrentHashMap<>();
+    public static Map<PokeLocation, Long> sniperCache = new ConcurrentHashMap<>();
 
     public static void addToCache(PokeLocation pokeLocation){
         sniperCache.put(pokeLocation, System.currentTimeMillis());

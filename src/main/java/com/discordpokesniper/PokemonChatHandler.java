@@ -23,6 +23,7 @@ public class PokemonChatHandler implements MessageCreateListener{
         double latitude = pokeLocation.getLatitude();
         double longitude = pokeLocation.getLongitude();
         String pokemonName = pokeLocation.getPokemonType().toString();
+
         BufferedWriter writer = null;
         try{
             writer = new BufferedWriter(new FileWriter(new File(Main.getCurrentDirectory().getAbsolutePath() + "\\snipe.vbs")));

@@ -63,9 +63,8 @@ public class PokeLocation{
         //Check if Lat/Long found is valid
         if(latitude > 90 || latitude < -90 || longitude > 180 || longitude < -180) return null;
         if(latitude % 1 == 0 || longitude % 1 == 0) return null;
-
         //Find if it is 100IV pokemon
-        boolean is100IV = StringUtils.containsIgnoreCase(notificationString, "IV: 100") || StringUtils.containsIgnoreCase(notificationString, "iv100") || StringUtils.containsIgnoreCase(notificationString, "100iv") || StringUtils.containsIgnoreCase(notificationString, "100%") || StringUtils.containsIgnoreCase(notificationString, "IV:(100)");
+        boolean is100IV = StringUtils.containsIgnoreCase(notificationString, "IV: 100") || StringUtils.containsIgnoreCase(notificationString, "iv100") || StringUtils.containsIgnoreCase(notificationString, "100iv") || StringUtils.containsIgnoreCase(notificationString, "100%") || StringUtils.containsIgnoreCase(notificationString, "IV:(100)") || StringUtils.containsIgnoreCase(notificationString, ":100:");
         if(!is100IV) return null;
         //Find which pokemon we're talking about
         String pokemonType = null;
@@ -94,6 +93,6 @@ public class PokeLocation{
     public int hashCode(){
         int latitude = (int)(DPSUtils.formatCoords(getLatitude()) * 100000);
         int longitude = (int)(DPSUtils.formatCoords(getLongitude()) * 100000);
-        return latitude + longitude;
+        return (latitude + longitude);
     }
 }
