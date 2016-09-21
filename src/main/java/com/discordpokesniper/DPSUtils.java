@@ -1,14 +1,12 @@
 package com.discordpokesniper;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
 
 public class DPSUtils{
 
@@ -32,5 +30,25 @@ public class DPSUtils{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static ArrayList<String> pokemonSniping = new ArrayList<>();
+
+    public static void loadSnipingPokemon(){
+        File file = new File(Main.getCurrentDirectory().getAbsolutePath() + "/DiscordSniperPokemon.txt");
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String pokemonLine = null;
+            while((pokemonLine = reader.readLine()) != null){
+                String[] split = pokemonLine.split("\\=");
+                String name = split[0];
+                String value = split[1];
+                if(Boolean.valueOf(value) == false) continue;
+                else pokemonSniping.add(name);
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
     }
 }

@@ -7,23 +7,23 @@ import java.util.regex.Pattern;
 
 public class PokeLocation{
 
-    private PokemonType pokemonType;
+    private String pokemonType;
     private double longitude;
     private double latitude;
 
 
-    public PokeLocation(PokemonType pokemonType, double longitude, double latitude){
+    public PokeLocation(String pokemonType, double longitude, double latitude){
         setPokemonType(pokemonType);
         setLongitude(longitude);
         setLatitude(latitude);
     }
 
 
-    public void setPokemonType(PokemonType pokemonType){
+    public void setPokemonType(String pokemonType){
         this.pokemonType = pokemonType;
     }
 
-    public PokemonType getPokemonType(){
+    public String getPokemonType(){
         return this.pokemonType;
     }
 
@@ -70,9 +70,9 @@ public class PokeLocation{
         if(!is100IV) return null;
 
         //Find which pokemon we're talking about
-        PokemonType pokemonType = null;
-        for(PokemonType type : PokemonType.values()){
-            if(StringUtils.containsIgnoreCase(notificationString, type.toString())){
+        String pokemonType = null;
+        for(String type : DPSUtils.pokemonSniping){
+            if(StringUtils.containsIgnoreCase(notificationString, type)){
                 pokemonType = type;
                 break;
             }

@@ -18,7 +18,8 @@ public class Main{
         Main main = new Main();
         main.disableLoggers();
         main.setCurrentDirectoryLocation();
-
+        DPSUtils.loadSnipingPokemon();
+        Discord.launch();
         DiscordAPI discordAPI = main.connectToDiscord();
         main.registerListeners(discordAPI);
         SnipeCache.startCacheProgram();
@@ -56,4 +57,5 @@ public class Main{
     public static File getCurrentDirectory(){
         return currentDirectory;
     }
+
 }
