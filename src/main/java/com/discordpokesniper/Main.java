@@ -20,7 +20,6 @@ public class Main{
         main.disableLoggers();
         main.setCurrentDirectoryLocation();
         DPSUtils.loadSnipingPokemon();
-        Discord.launch();
         DiscordAPI discordAPI = main.connectToDiscord();
         main.registerListeners(discordAPI);
         SnipeCache.startCacheProgram();
